@@ -44,4 +44,60 @@ def DFT(x):
         F_k.append(Fk)
     return F_k
 
+#Se declara la función de las frecuencias utilizando el paquete fftfreq
+n_sig=len(x_sig)
+dx_sig=x_sig[1]-x_sig[0]
+f_sig=fftfreq(n_sig, dx_sig)
 
+n_sum=len(x_sum)
+dx_sum=x_sum[1]-x_sum[0]
+f_sum=fftfreq(n_sum, dx_sum)
+print("Se uso el paquete de fftfreq para la grafica de transformada")
+
+#Se grafica la transformada de Fourier y se guarda
+fourier_sig=DFT(y_sig)
+fourier_sum=DFT(y_sum)
+
+#Se grafica la transformada para ambas señales
+plt.figure()
+plt.subplot(2,1,1)
+plt.plot(f_sig, np.abs(fourier_sig))
+plt.title("Transformada de Fourier de signal")
+plt.xlabel("Frecuencia")
+plt.ylabel("Transoformada de Fourier")
+plt.xlim(-650,650)
+plt.subplot(2,1,2)
+plt.plot(f_sum, np.abs(fourier_sum))
+plt.title("Transformada de Fourier de la suma")
+plt.xlabel("Frecuencia")
+plt.ylabel("Transformada de Fourier")
+plt.xlim(-650,650)
+plt.savefig("GarciaCamila_Transformadas.pdf")
+
+#Se hace el espectograma de ambas señales-
+plt.figure()
+plt.subplot(2,1,1)
+plt.specgram(y_sig,  NFFT=256, Fs=2, Fc=0)
+plt.title("Espectograma de signal")
+plt.xlabel("Frecuencia")
+plt.ylabel("Transformada de Fourier")
+plt.subplot(2,1,2)
+plt.specgram(f_sum,  NFFT=256, Fs=2, Fc=0)
+plt.title("Espectograma de la suma")
+plt.xlabel("Frecuencia")
+plt.ylabel("Transformada de Fourier")
+plt.savefig("GarciaCamila_Espectogramas.pdf")
+
+#Se almacenan los datos de temblo.txt
+'''
+temblor = np.genfromtxt("temblor.txt", skip_header=4)
+x_tem=temblor[:,0]
+y_tem=np.linspace(0, 10000, 10)
+
+plt.figure()
+plt.plot(x_tem, y_tem)
+plt.title("Espectograma de signal")
+plt.xlabel("Frecuencia")
+plt.ylabel("Transformada de Fourier")
+plt.savefig("GarciaCamila_Temblor.pdf")
+'''
