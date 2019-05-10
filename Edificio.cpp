@@ -101,20 +101,64 @@ double maximo( double* arr, int size ){
 
 //Main que crea los archivos de datos a ser graficados 
 int main(int argc, char *argv[]){
+
+	//Agregan los datos para la primera grafica de ui(t) en funcion del tiempo
 	ofstream data;
-	data.open("4graficas.dat");
+	data.open("1grafica.dat");
 
 	double w = sqrt(k/m);
 	double u1 = 0.0, u2 = 0.0, u3 = 0.0, v1 = 0.0, v2 = 0.0, v3 = 0.0;
-	//Agregan los datos para las graficas de ui(t) en funcion del tiempo
+
 	for( double t = 0.0; t < 200; t += h ){
 		rungekutta( t, u1, u2, u3, v1, v2, v3, w );
 		data << t << TAB << u1 << TAB << u2 << TAB << u3 << TAB << v1 << TAB << v2 << TAB << v3 << endl;
 	}	
 	data.close();
+
+	//Agregan los datos para la segunda grafica de ui(t) en funcion del tiempo
+	ofstream data1;
+	data1.open("2grafica.dat");
+
+	double w2 = 0.8;
+	double u11 = 0.0, u22 = 0.0, u33 = 0.0, v11 = 0.0, v22 = 0.0, v33 = 0.0;
+
+	for( double t1 = 0.0; t1 < 200; t1 += h ){
+		rungekutta( t1, u11, u22, u33, v11, v22, v33, w2 );
+		data1 << t1 << TAB << u11 << TAB << u22 << TAB << u33 << TAB << v11 << TAB << v22 << TAB << v33 << endl;
+	}	
+	data1.close();
+
+	//Agregan los datos para la tercera grafica de ui(t) en funcion del tiempo
+
+	ofstream data3;
+	data3.open("3grafica.dat");
+
+	double w3 = 1.8;
+	double u111 = 0.0, u222 = 0.0, u333 = 0.0, v111 = 0.0, v222 = 0.0, v333 = 0.0;
+
+	for( double t2 = 0.0; t2 < 200; t2 += h ){
+		rungekutta( t2, u111, u222, u333, v111, v222, v333, w3 );
+		data3 << t2 << TAB << u111 << TAB << u222 << TAB << u333 << TAB << v111 << TAB << v222 << TAB << v333 << endl;
+	}	
+	data3.close();
+
+	//Agregan los datos para la tercera grafica de ui(t) en funcion del tiempo
+
+	ofstream data4;
+	data4.open("4grafica.dat");
+
+	double w4 = 2.6;
+	double u1111 = 0.0, u2222 = 0.0, u3333 = 0.0, v1111 = 0.0, v2222 = 0.0, v3333 = 0.0;
+
+	for( double t3 = 0.0; t3 < 200; t3 += h ){
+		rungekutta( t3, u1111, u2222, u3333, v1111, v2222, v3333, w4 );
+		data4 << t3 << TAB << u1111 << TAB << u2222 << TAB << u3333 << TAB << v1111 << TAB << v2222 << TAB << v3333 << endl;
+	}	
+	data4.close();
+
 	//Se agregan los datos para la grafica de ui(t)max
 	ofstream data2;
-	data2.open("1grafica.dat");
+	data2.open("graficamax.dat");
 
 	double wmin = 0.2*sqrt(k/m);
 	double wmax = 3.0*sqrt(k/m);

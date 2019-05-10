@@ -74,21 +74,21 @@ plt.ylabel("Transformada de Fourier")
 plt.xlim(-650,650)
 plt.savefig("GarciaCamila_Transformadas.pdf")
 
-#Se hace el espectograma de ambas señales-
+#Se hace el espectrograma de ambas señales-
 plt.figure()
 plt.subplot(2,1,1)
-plt.specgram(y_sig,  NFFT=256, Fs=2, Fc=0)
+plt.specgram(x_sum,  NFFT=256, Fs=2, Fc=0)
 plt.title("Espectograma de signal")
 plt.xlabel("Frecuencia")
 plt.ylabel("Transformada de Fourier")
 plt.subplot(2,1,2)
-plt.specgram(f_sum,  NFFT=256, Fs=2, Fc=0)
+plt.specgram(x_sig,  NFFT=256, Fs=2, Fc=0)
 plt.title("Espectograma de la suma")
 plt.xlabel("Frecuencia")
 plt.ylabel("Transformada de Fourier")
-plt.savefig("GarciaCamila_Espectogramas.pdf")
+plt.savefig("GarciaCamila_Espectrogramas.pdf")
 
-#Se almacenan los datos de temblo.txt
+#Se almacenan los datos de temblor.txt
 '''
 temblor = np.genfromtxt("temblor.txt", skip_header=4)
 x_tem=temblor[:,0]

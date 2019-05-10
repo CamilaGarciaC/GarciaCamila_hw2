@@ -1,49 +1,75 @@
-\documentclass{article}
+%--------------------------------------------------------------------
+%--------------------------------------------------------------------
+% Formato para los talleres del curso de Métodos Computacionales
+% Universidad de los Andes
+%--------------------------------------------------------------------
+%--------------------------------------------------------------------
+
+\documentclass[11pt,letterpaper]{exam}
 \usepackage[utf8]{inputenc}
-
-\title{Tarea 2 metodos computacionales}
-\author{Maria Camila Garcia 20151657 }
-\date{6 de Mayo 2018}
-
-\usepackage{natbib}
+\usepackage[spanish]{babel}
 \usepackage{graphicx}
+\usepackage{tabularx}
+\usepackage[absolute]{textpos} % Para poner una imagen en posiciones arbitrarias
+\usepackage{multirow}
+\usepackage{float}
+\usepackage{hyperref}
+%\decimalpoint
 
 \begin{document}
-
-\maketitle
-\section{Transformada de Fourier}
-
-La siguiente grafica representa los datos signal.dat y signalSuma.dat.
-
 \begin{center}
-\includegraphics[width=13cm, height=7cm]{GarciaCamila_SubplotsGraficas.pdf}\\
-\small{Figura 1: Grafica con los datos de signal.dat y signalSuma.dat.}
+{\Large Métodos Computacionales} \\
+\textsc{Tarea 2}\\
+Maria Camila Garcia 201515657\\
+11-02-2019\\
+\end{center}
+
+En la siguiente figura se presenta la grafica de los datos signal.dat y signalSuma.dat.
+
+\noindent
+\section{Ejercicio 1: Fourier}
+\begin{center}
+\includegraphics[width=10cm]{GarciaCamila_SubplotsGraficas.pdf}
 \end{center}
 
 A continuacion se tienen la grafica de de las transformadas de fourier para ambas señales. 
 
 \begin{center}
-\includegraphics[width=13cm, height=7cm]{GarciaCamila_Transformadas.pdf}\\
-\small{Figura 2: Grafica con las transformadas de fourier de los datos de signal.dat y signalSuma.dat.}
+\includegraphics[width=10cm]{GarciaCamila_Transformadas.pdf}
 \end{center}
 
-Posteriormente, se muestra el espectograma de los datos.
+Posteriormente, se muestra el espectrograma de los datos signal.dat y signalSuma.dat.
 
 \begin{center}
-\includegraphics[width=13cm, height=7cm]{GarciaCamila_Espectogramas.pdf}\\
-\small{Figura 3: Espectogramas de los datos de signal.dat y signalSuma.dat.}
+\includegraphics[width=10cm]{GarciaCamila_Espectrogramas.pdf}
 \end{center}
 
-Ahora se tiene la transformada de Fourier de los datos temblor.txt.
+Respecto al espectrograma, pordemos decir que para el caso del temblor, este busca medir el movimiento de la estructura ante la vibracion del suelo que soporta. En general, representa la energia del contenido de la señal, por lo que hace un trabajo muy similar al de la transformada de Fourier. 
+
+En la grafica de la señal en funcion del tiempo de temblor.txt se tiene:
+
+\noindent
+\section{Ejercicio 2: Ecuaciones diferenciales ordinarias: un edificio en un sismo}
+
+Grafica de la amplitud maxima en funcion de w. 
+\begin{center}
+\includegraphics[width=10cm]{GarciaCamila_Amplitudui(t)maxVsW.pdf}
+\end{center}
 
 \begin{center}
-\includegraphics[width=13cm, height=7cm]{GarciaCamila_SubplotsGraficas.pdf}\\
-\small{Figura 4: Grafica con los datos de signal.dat y signalSuma.dat.}
+\includegraphics[width=10cm]{PrimeraGraficaUi(t).pdf}
 \end{center}
-
-Finalmente, se tiene el espectograma de la señal temblor.txt.
 
 \begin{center}
-\includegraphics[width=13cm, height=7cm]{GarciaCamila_SubplotsGraficas.pdf}\\
-\small{Figura 5: Espectograma de la señal temblor.txt.}
+\includegraphics[width=10cm]{SegundaGraficaUi(t).pdf}
 \end{center}
+
+\begin{center}
+\includegraphics[width=10cm]{TerceraGraficaUi(t).pdf}
+\end{center}
+
+\begin{center}
+\includegraphics[width=10cm]{CuartaGraficaUi(t).pdf}
+\end{center}
+
+\end{document}
