@@ -1,7 +1,6 @@
 import numpy as np
 import matplotlib.pylab as plt
 import scipy as sp
-import scipy.io.wavfile as wav
 from scipy.fftpack import fft, fftfreq,ifft
 from scipy import interpolate
 
@@ -52,7 +51,7 @@ f_sig=fftfreq(n_sig, dx_sig)
 n_sum=len(x_sum)
 dx_sum=x_sum[1]-x_sum[0]
 f_sum=fftfreq(n_sum, dx_sum)
-print("Se uso el paquete de fftfreq para la grafica de transformada")
+print("Se uso el paquete de fftfreq para la grafica de la transformada")
 
 #Se grafica la transformada de Fourier y se guarda
 fourier_sig=DFT(y_sig)
@@ -89,15 +88,35 @@ plt.ylabel("Transformada de Fourier")
 plt.savefig("GarciaCamila_Espectrogramas.pdf")
 
 #Se almacenan los datos de temblor.txt
-'''
 temblor = np.genfromtxt("temblor.txt", skip_header=4)
-x_tem=temblor[:,0]
-y_tem=np.linspace(0, 10000, 10)
 
+#Grafico de los datos temblor
 plt.figure()
-plt.plot(x_tem, y_tem)
-plt.title("Espectograma de signal")
+plt.plot(temblor)
+plt.title("Temblor")
+plt.xlabel("Tiempo")
+plt.ylabel("Señal")
+plt.savefig("GarciaCamila_Temblor.pdf")
+
+#Transformada de Fourier de la señal usando paquetes de scipy 
+transformadaTemblor = fft(temblor)
+dxTemblor = 0.1
+nTemblor = len(temblor)
+frecuenciaTemblor = fftfreq(nTemblor, dxTemblor)
+
+#grafica de la transformada de Fourier del temblor
+plt.figure()
+plt.plot(frecuenciaTemblor, np.abs(transformadaTemblor))
+plt.title("Transformada de fourier de los datos del sismo")
 plt.xlabel("Frecuencia")
 plt.ylabel("Transformada de Fourier")
-plt.savefig("GarciaCamila_Temblor.pdf")
-'''
+plt.savefig("GarciaCamilaTransformadaTemblor.pdf")
+
+#Espectrograma de la señal 
+plt.figure()
+plt.specgram(temblor,  NFFT=256, Fs=2, Fc=0)
+plt.title("Espectograma de la suma")
+plt.xlabel("Frecuencia")
+plt.ylabel("Transformada de Fourier")
+plt.savefig("GarciaCamila_EspectrogramaTemblor.pdf")
+
