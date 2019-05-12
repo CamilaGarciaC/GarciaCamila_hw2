@@ -10,12 +10,14 @@ u3_max=datos[:,3]
 
 #Se grafica la amplitud maxima en funcion de w. 
 plt.figure()
-plt.plot(w, u1_max)
-plt.plot(w, u2_max)
-plt.plot(w, u3_max)
+plt.plot(w, u1_max, label = "u1 max")
+plt.plot(w, u2_max, label = "u2 max")
+plt.plot(w, u3_max, label = "u3 max")
 plt.title("Amplitudes ui(t)max en funcion de w")
-plt.xlabel("t")
+plt.xlim(0, 3)
+plt.xlabel("w")
 plt.ylabel("ui(t)max")
+plt.legend()
 plt.savefig("GarciaCamila_Amplitudui(t)maxVsW.pdf")
 
 #Se importan los datos para la primera grafica de ui(t)max en funcion de t.
@@ -27,13 +29,14 @@ u3=datos[:,3]
 
 #Se hace la primera grafica de ui(t)max en funcion de t
 plt.figure()
-plt.plot(t, u1)
-plt.plot(t, u2)
-plt.plot(t, u3)
-plt.title("Amplitudes ui(t)max en funcion de w")
+plt.plot(t, u1, label = "u1")
+plt.plot(t, u2, label = "u2")
+plt.plot(t, u3, label = "u3")
+plt.title("Amplitudes ui(t)max en funcion de t")
 plt.xlim(0, 50)
 plt.xlabel("t")
 plt.ylabel("ui(t)")
+plt.legend()
 plt.savefig("PrimeraGraficaUi(t).pdf")
 
 #Se importan los datos para la segunda grafica de ui(t)max en funcion de t.
@@ -45,13 +48,14 @@ u3=datos[:,3]
 
 #Se hace la segunda grafica de ui(t)max en funcion de t
 plt.figure()
-plt.plot(t, u1)
-plt.plot(t, u2)
-plt.plot(t, u3)
-plt.title("Amplitudes ui(t)max en funcion de w")
+plt.plot(t, u1, label ="u1" )
+plt.plot(t, u2, label = "u2")
+plt.plot(t, u3, label = "u3")
+plt.title("Amplitudes ui(t)max en funcion de t")
 plt.xlim(0, 50)
 plt.xlabel("t")
 plt.ylabel("ui(t)")
+plt.legend()
 plt.savefig("SegundaGraficaUi(t).pdf")
 
 #Se importan los datos para la tercera grafica de ui(t)max en funcion de t.
@@ -63,13 +67,14 @@ u3=datos[:,3]
 
 #Se hace la tercera grafica de ui(t)max en funcion de t
 plt.figure()
-plt.plot(t, u1)
-plt.plot(t, u2)
-plt.plot(t, u3)
-plt.title("Amplitudes ui(t)max en funcion de w")
+plt.plot(t, u1, label = "u1")
+plt.plot(t, u2, label = "u2")
+plt.plot(t, u3, label = "u3")
+plt.title("Amplitudes ui(t)max en funcion de t")
 plt.xlim(0, 50)
 plt.xlabel("t")
 plt.ylabel("ui(t)")
+plt.legend()
 plt.savefig("TerceraGraficaUi(t).pdf")
 
 #Se importan los datos para la cuarta grafica de ui(t)max en funcion de t.
@@ -81,11 +86,12 @@ u3=datos[:,3]
 
 #Se hace la cuarta grafica de ui(t)max en funcion de t
 plt.figure()
-plt.plot(t, u1)
-plt.plot(t, u2)
-plt.plot(t, u3)
-plt.title("Amplitudes ui(t)max en funcion de w")
+plt.plot(t, u1, label = "u1")
+plt.plot(t, u2, label = "u2")
+plt.plot(t, u3, label = "u3")
+plt.title("Amplitudes ui(t)max en funcion de t")
 plt.xlim(0, 50)
 plt.xlabel("t")
 plt.ylabel("ui(t)")
+plt.legend()
 plt.savefig("CuartaGraficaUi(t).pdf")
